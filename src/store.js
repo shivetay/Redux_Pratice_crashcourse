@@ -8,8 +8,7 @@ const initialState = {
   // posts: {
   //   data: {},
   // },
-  items: [],
-  item: {},
+  posts: {},
 };
 
 const reducers = {

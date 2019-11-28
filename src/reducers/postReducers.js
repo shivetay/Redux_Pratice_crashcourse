@@ -1,21 +1,11 @@
 import axios from 'axios';
 
-// const initialState = {
-//   // posts: {
-//   //   data: {},
-//   // },
-//   items: [],
-//   item: {},
-// };
-
-export const getAll = ({ item }) => item;
-
-const reducerName = 'posts';
-const createActionName = name => `/${reducerName}/${name}`;
+// const reducerName = 'posts';
+// const createActionName = name => `/${reducerName}/${name}`;
 
 //action types
-export const FETCH_POSTS = createActionName('FETCH_POSTS');
-export const NEW_POSTS = createActionName('NEW_POSTS');
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const NEW_POSTS = 'NEW_POSTS';
 
 //action creator
 

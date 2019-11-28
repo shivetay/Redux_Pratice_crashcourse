@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Post from './Post';
-import { getAll, fetchFromApi } from '../reducers/postReducers';
+import { fetchFromApi } from '../reducers/postReducers';
 
 const mapStateToProps = state => ({
-  posts: getAll(state),
+  posts: state.posts,
 });
 
 const mapDispatchToProps = dispatch => ({
