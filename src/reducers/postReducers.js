@@ -10,7 +10,7 @@ export const NEW_POSTS = 'NEW_POSTS';
 //action creator
 
 export const fetchStarted = payload => ({
-  payload,
+  ...payload,
   type: FETCH_POSTS,
 });
 
@@ -25,7 +25,7 @@ export const fetchFromApi = () => {
   };
 };
 
-export default function(state = [], action = {}) {
+export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_POSTS: {
       return {
