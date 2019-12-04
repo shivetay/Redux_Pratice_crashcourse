@@ -5,10 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import postReducers from './reducers/postReducers';
 
 const initialState = {
-  // posts: {
-  //   data: {},
-  // },
-  posts: {},
+  posts: {
+    data: {},
+  },
+  // posts: {},
 };
 
 const reducers = {
