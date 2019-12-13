@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import PostForm from './PostForm';
@@ -10,10 +9,10 @@ export class Post extends Component {
     fetchPosts: PropTypes.func,
   };
 
-  componentDidMount = () => {
+  componentDidMount() {
     const { fetchPosts } = this.props;
     fetchPosts();
-  };
+  }
 
   // onSubmit = (e, id, title, body) => {
   //   e.preventDefault();
@@ -31,12 +30,14 @@ export class Post extends Component {
   // };
 
   render() {
+    console.log('props', this.props);
+    const { posts } = this.props;
     return (
       <div>
         <PostForm addPost={this.onSubmit} />
         <br />
         <div>
-          {this.props.posts.map(post => (
+          {posts.map(post => (
             <div key={post.id}>
               <h3>{post.title}</h3>
               <p>{post.body}</p>

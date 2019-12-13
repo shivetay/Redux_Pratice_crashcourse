@@ -1,38 +1,26 @@
-import axios from 'axios';
+import Axios from 'axios';
 
-// const reducerName = 'posts';
-// const createActionName = name => `/${reducerName}/${name}`;
+/* action type */
 
-//action types
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const NEW_POSTS = 'NEW_POSTS';
+const FETCH_POSTS = 'FETCH_POSTS';
 
-//action creator
+/* action creator */
+export const fetchStarted = payload => ({ payload, type: FETCH_POSTS });
 
-export const fetchStarted = payload => ({
-  ...payload,
-  type: FETCH_POSTS,
-});
-
-//thunk
+/* thunk */
 export const fetchFromApi = () => {
   return (dispatch, getState) => {
-    axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(res =>
-      dispatch({
-        type: fetchStarted(res.data),
-      })
+    Axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5').then(res =>
+      dispatch(fetchStarted(res.data))
     );
   };
 };
 
-export default function(state = {}, action) {
+/* reducer */
+export default function reducer(state = [], action = {}) {
   switch (action.type) {
-    case FETCH_POSTS: {
-      return {
-        ...state,
-        data: action.payload,
-      };
-    }
+    case FETCH_POSTS:
+      return action.payload;
     default:
       return state;
   }

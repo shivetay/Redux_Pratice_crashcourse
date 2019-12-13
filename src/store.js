@@ -2,18 +2,23 @@ import { combineReducers, applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import postReducers from './reducers/postReducers';
+import postReducer from './reducers/postReducers';
 
 const initialState = {
   posts: {
     data: {},
   },
-  // posts: {},
 };
 
 const reducers = {
-  posts: postReducers,
+  posts: postReducer,
 };
+
+Object.keys(initialState).forEach(item => {
+  if (typeof reducers[item] == 'undefined') {
+    reducers[item] = (state = null) => state;
+  }
+});
 
 const combinedReducers = combineReducers(reducers);
 
